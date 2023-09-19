@@ -10429,7 +10429,7 @@ var $;
         }
         Source() {
             const obj = new this.$.$mol_link_source();
-            obj.uri = () => "https://github.com/hyoo-ru/page.hyoo.ru/";
+            obj.uri = () => "https://github.com/PavelZubkov/hype_vote";
             return obj;
         }
         Polls_page() {
