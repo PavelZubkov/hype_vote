@@ -1,0 +1,16 @@
+{
+	"$hype_vote_app_Home_title": "Создать свой опрос",
+	"$hype_vote_app_Point_add_label": "Добавить пункт",
+	"$hype_vote_app_Point_image_label_title": "Ссылка на изображение",
+	"$hype_vote_app_Point_name_label_title": "Название",
+	"$hype_vote_app_Points_list_label_title": "Варианты ответов",
+	"$hype_vote_app_Poll_add_title": "Создать опрос",
+	"$hype_vote_app_Poll_name_label_title": "Название опроса",
+	"$hype_vote_app_Poll_page_title": "Опрос",
+	"$hype_vote_app_Poll_voting_link_title": "Страница голосования",
+	"$hype_vote_app_poll_no_name": "Дайте опросу имя",
+	"$mol_link_source_hint": "Исходные коды",
+	"$mol_select_Filter_hint": "Фильтр..",
+	"$mol_select_hint": "Выбрать..",
+	"$mol_select_no_options_message": "Нет вариантов"
+}

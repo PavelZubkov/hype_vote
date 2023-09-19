@@ -1,1 +1,16 @@
-{}
+{
+	"$hype_vote_app_Home_title": "Home page",
+	"$hype_vote_app_Point_add_label": "Add point",
+	"$hype_vote_app_Point_image_label_title": "Point image",
+	"$hype_vote_app_Point_name_label_title": "Point name",
+	"$hype_vote_app_Points_list_label_title": "Voting points",
+	"$hype_vote_app_Poll_add_title": "Add poll",
+	"$hype_vote_app_Poll_name_label_title": "Poll name",
+	"$hype_vote_app_Poll_page_title": "Poll",
+	"$hype_vote_app_Poll_voting_link_title": "Voting page",
+	"$hype_vote_app_poll_no_name": "Unnamed",
+	"$mol_link_source_hint": "Source code",
+	"$mol_select_Filter_hint": "Filter..",
+	"$mol_select_hint": "Pick..",
+	"$mol_select_no_options_message": "No options"
+}
