@@ -1,4 +1,7 @@
 [hype_vote_app_voting_point]:where([mol_check_checked]) {
 	color: var(--mol_theme_current);
 }
- 
+
+[hype_vote_app_voting_point] {
+	align-items: center;
+}
