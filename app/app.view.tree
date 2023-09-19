@@ -1,3 +1,84 @@
-$hype_vote $mol_view
-	title \hype vote
-	sub / \$hype_vote
+$hype_vote_app $mol_book2
+	yard $hyoo_sync_client
+	poll_no_name @ \Unnamed
+	pages /
+		<= Polls_page $mol_page
+			title \$hype_vote
+			body /
+				<= Polls_body $mol_list
+					rows /
+						<= Poll_add $mol_button_major
+							title @ \Add poll
+							click? <=> poll_add? null
+						<= Poll_list $mol_list
+							rows <= poll_list /
+								<= Poll_link*0 $mol_link
+									arg * poll <= poll_id* \
+									sub / <= poll_name* \
+			foot /
+				<= Online $hyoo_sync_online
+					yard <= yard
+				<= Source $mol_link_source
+					uri \https://github.com/hyoo-ru/page.hyoo.ru/
+		<= Poll_page $mol_page
+			title @ \Poll
+			tools /
+				<= Poll_voting_link $mol_link
+					target \_blank
+					arg *
+						voting <= poll_opened_id \
+						poll null
+					title @ \Voting page
+			body /
+				<= Poll_body $mol_list
+					rows /
+						<= Poll_name_label $mol_labeler
+							title @ \Poll name
+							content /
+								<= Poll_name_control $mol_string
+									value? <=> poll_opened_name? \
+						<= Points_list_label $mol_labeler
+							title @ \Voting points
+							content /
+								<= Point_add $mol_button_minor
+									sub /
+										<= Point_add_icon $mol_icon_plus
+										<= Point_add_label @ \Add point
+									click? <=> point_add? null
+						<= Point_rows $mol_list
+							rows <= point_rows /
+								<= Point_card*0 $mol_card
+									content /
+										<= Point_name_label* $mol_labeler
+											title @ \Point name
+											content / <= Point_name_cotrol* $mol_string
+												value? <=> point_name*? \
+										<= Point_image_label* $mol_labeler
+											title @ \Point image
+											content / <= Point_image_control* $mol_string
+												value? <=> point_image*? \
+										<= Point_image_preview* $mol_image
+											uri <= point_image*
+										<= Point_drop* $mol_button_minor
+											sub / <= Point_drop_icon* $mol_icon_delete
+											click? <=> point_drop*? null
+		<= Voting_page $mol_page
+			title <= poll_voting_name \
+			tools /
+				<= Home $mol_link
+					title @ \Home page
+					arg *
+						voting null
+						poll null
+				<= Source $mol_link_source
+					uri \https://github.com/hyoo-ru/page.hyoo.ru/
+			body <= voting_points /
+				<= Voting_point*0 $mol_check
+					checked? <=> voted*? false
+					sub /
+						<= Voting_point_image* $mol_image
+							uri <= voting_point_image* \
+						<= Voting_point_name* $mol_paragraph
+							title <= voting_point_name* \
+						<= Votin_point_count* $mol_paragraph
+							title <= voting_point_count* \
