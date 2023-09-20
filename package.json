@@ -233,6 +233,7 @@
     "$mol_guard",
     "$mol_labeler",
     "$mol_icon_plus",
+    "$mol_link_iconed",
     "$mol_image",
     "$mol_icon_delete",
     "$mol_card"

@@ -10707,6 +10707,94 @@ var $;
 "use strict";
 var $;
 (function ($) {
+    class $mol_link_iconed extends $mol_link {
+        sub() {
+            return [
+                this.Icon()
+            ];
+        }
+        content() {
+            return [
+                this.title()
+            ];
+        }
+        host() {
+            return "";
+        }
+        icon() {
+            return "";
+        }
+        Icon() {
+            const obj = new this.$.$mol_image();
+            obj.uri = () => this.icon();
+            obj.title = () => "";
+            return obj;
+        }
+        title() {
+            return this.uri();
+        }
+    }
+    __decorate([
+        $mol_mem
+    ], $mol_link_iconed.prototype, "Icon", null);
+    $.$mol_link_iconed = $mol_link_iconed;
+})($ || ($ = {}));
+//mol/link/iconed/-view.tree/iconed.view.tree.ts
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_link_iconed extends $.$mol_link_iconed {
+            icon() {
+                return `https://favicon.yandex.net/favicon/${this.host()}?color=0,0,0,0&size=32&stub=1`;
+            }
+            host() {
+                const base = this.$.$mol_state_arg.href();
+                const url = new URL(this.uri(), base);
+                return url.hostname;
+            }
+            title() {
+                const uri = this.uri();
+                const host = this.host();
+                const suffix = (host ? uri.split(this.host(), 2)[1] : uri)?.replace(/^[\/\?#!]+/, '');
+                return decodeURIComponent(suffix || host).replace(/^\//, ' ');
+            }
+            sub() {
+                return [
+                    ...this.host() ? [this.Icon()] : [],
+                    ...this.content() ? [' ', ...this.content()] : [],
+                ];
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_link_iconed.prototype, "icon", null);
+        __decorate([
+            $mol_mem
+        ], $mol_link_iconed.prototype, "host", null);
+        __decorate([
+            $mol_mem
+        ], $mol_link_iconed.prototype, "title", null);
+        __decorate([
+            $mol_mem
+        ], $mol_link_iconed.prototype, "sub", null);
+        $$.$mol_link_iconed = $mol_link_iconed;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+//mol/link/iconed/iconed.view.ts
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/link/iconed/iconed.view.css", "[mol_link_iconed] {\n\talign-items: baseline;\n\tdisplay: inline-flex;\n\tpadding: var(--mol_gap_text);\n}\n\n[mol_link_iconed_icon] {\n\tbox-shadow: none;\n\theight: 1.5em;\n\twidth: 1em;\n\tflex: 0 0 auto;\n\tdisplay: inline-block;\n\talign-self: normal;\n\tvertical-align: top;\n\tborder-radius: 0;\n\tobject-fit: scale-down;\n\topacity: .75;\n}\n\n[mol_theme=\"$mol_theme_dark\"] [mol_link_iconed_icon] {\n\tfilter: var(--mol_theme_image);\n}\n");
+})($ || ($ = {}));
+//mol/link/iconed/-css/iconed.view.css.ts
+;
+"use strict";
+var $;
+(function ($) {
     class $mol_icon_delete extends $mol_icon {
         path() {
             return "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19C6,20.1 6.9,21 8,21H16C17.1,21 18,20.1 18,19V7H6V19Z";
@@ -10974,8 +11062,17 @@ var $;
             return obj;
         }
         Point_image_preview(id) {
-            const obj = new this.$.$mol_image();
+            const obj = new this.$.$mol_link_iconed();
             obj.uri = () => this.point_image(id);
+            obj.title = () => null;
+            return obj;
+        }
+        Point_image_preview_label(id) {
+            const obj = new this.$.$mol_labeler();
+            obj.title = () => this.$.$mol_locale.text('$hype_vote_app_Point_image_preview_label_title');
+            obj.content = () => [
+                this.Point_image_preview(id)
+            ];
             return obj;
         }
         Point_drop_icon(id) {
@@ -10995,13 +11092,21 @@ var $;
             obj.click = (next) => this.point_drop(id, next);
             return obj;
         }
+        Point_actions_label(id) {
+            const obj = new this.$.$mol_labeler();
+            obj.title = () => this.$.$mol_locale.text('$hype_vote_app_Point_actions_label_title');
+            obj.content = () => [
+                this.Point_drop(id)
+            ];
+            return obj;
+        }
         Point_card(id) {
             const obj = new this.$.$mol_card();
             obj.content = () => [
                 this.Point_name_label(id),
                 this.Point_image_label(id),
-                this.Point_image_preview(id),
-                this.Point_drop(id)
+                this.Point_image_preview_label(id),
+                this.Point_actions_label(id)
             ];
             return obj;
         }
@@ -11056,8 +11161,9 @@ var $;
             return "";
         }
         Voting_point_image(id) {
-            const obj = new this.$.$mol_image();
+            const obj = new this.$.$mol_link_iconed();
             obj.uri = () => this.voting_point_image(id);
+            obj.title = () => null;
             return obj;
         }
         voting_point_name(id) {
@@ -11176,6 +11282,9 @@ var $;
     ], $hype_vote_app.prototype, "Point_image_preview", null);
     __decorate([
         $mol_mem_key
+    ], $hype_vote_app.prototype, "Point_image_preview_label", null);
+    __decorate([
+        $mol_mem_key
     ], $hype_vote_app.prototype, "Point_drop_icon", null);
     __decorate([
         $mol_mem_key
@@ -11183,6 +11292,9 @@ var $;
     __decorate([
         $mol_mem_key
     ], $hype_vote_app.prototype, "Point_drop", null);
+    __decorate([
+        $mol_mem_key
+    ], $hype_vote_app.prototype, "Point_actions_label", null);
     __decorate([
         $mol_mem_key
     ], $hype_vote_app.prototype, "Point_card", null);
@@ -11346,7 +11458,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $mol_style_attach("hype/vote/app/app.view.css", "[hype_vote_app_voting_point]:where([mol_check_checked]) {\n\tcolor: var(--mol_theme_current);\n}\n ");
+    $mol_style_attach("hype/vote/app/app.view.css", "[hype_vote_app_voting_point]:where([mol_check_checked]) {\n\tcolor: var(--mol_theme_current);\n}\n\n[hype_vote_app_voting_point] {\n\talign-items: center;\n}\n");
 })($ || ($ = {}));
 //hype/vote/app/-css/app.view.css.ts
 ;
@@ -11371,14 +11483,6 @@ var $;
                     basis: '100%',
                 },
             },
-            Point_image_preview: {
-                width: '250px',
-                height: '130px',
-            },
-            Voting_point_image: {
-                width: '250px',
-                height: '130px',
-            }
         });
     })($$ = $.$$ || ($.$$ = {}));
 })($ || ($ = {}));

@@ -369,6 +369,15 @@ $mol_image $mol_view
 	minimal_width 16
 	minimal_height 16
 
+$mol_link_iconed $mol_link
+	sub /
+		<= Icon $mol_image
+			uri <= icon \
+			title \
+	content /
+		<= title <= uri
+	host \
+
 $mol_icon_delete $mol_icon path \M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19C6,20.1 6.9,21 8,21H16C17.1,21 18,20.1 18,19V7H6V19Z
 
 $mol_card $mol_list
@@ -440,14 +449,19 @@ $hype_vote_app $mol_book2
 											content / <= Point_name_cotrol* $mol_string
 												value? <=> point_name*? \
 										<= Point_image_label* $mol_labeler
-											title @ \Point image
+											title @ \Point site
 											content / <= Point_image_control* $mol_string
 												value? <=> point_image*? \
-										<= Point_image_preview* $mol_image
-											uri <= point_image*
-										<= Point_drop* $mol_button_minor
-											sub / <= Point_drop_icon* $mol_icon_delete
-											click? <=> point_drop*? null
+										<= Point_image_preview_label* $mol_labeler
+											title @ \Image
+											content / <= Point_image_preview* $mol_link_iconed
+												uri <= point_image*
+												title null
+										<= Point_actions_label* $mol_labeler
+											title @ \Actions
+											content / <= Point_drop* $mol_button_minor
+												sub / <= Point_drop_icon* $mol_icon_delete
+												click? <=> point_drop*? null
 		<= Voting_page $mol_page
 			title <= poll_voting_name \
 			tools /
@@ -461,8 +475,9 @@ $hype_vote_app $mol_book2
 				<= Voting_point*0 $mol_check
 					checked? <=> voted*? false
 					sub /
-						<= Voting_point_image* $mol_image
+						<= Voting_point_image* $mol_link_iconed
 							uri <= voting_point_image* \
+							title null
 						<= Voting_point_name* $mol_paragraph
 							title <= voting_point_name* \
 						<= Votin_point_count* $mol_paragraph

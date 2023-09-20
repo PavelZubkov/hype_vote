@@ -2884,6 +2884,29 @@ declare namespace $ {
 }
 
 declare namespace $ {
+    class $mol_link_iconed extends $mol_link {
+        sub(): readonly any[];
+        content(): readonly any[];
+        host(): string;
+        icon(): string;
+        Icon(): $$.$mol_image;
+        title(): string;
+    }
+}
+
+declare namespace $.$$ {
+    class $mol_link_iconed extends $.$mol_link_iconed {
+        icon(): string;
+        host(): string;
+        title(): string;
+        sub(): readonly any[];
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
     class $mol_icon_delete extends $mol_icon {
         path(): string;
     }
@@ -2942,10 +2965,12 @@ declare namespace $ {
         point_image(id: any, next?: any): string;
         Point_image_control(id: any): $$.$mol_string;
         Point_image_label(id: any): $mol_labeler;
-        Point_image_preview(id: any): $$.$mol_image;
+        Point_image_preview(id: any): $$.$mol_link_iconed;
+        Point_image_preview_label(id: any): $mol_labeler;
         Point_drop_icon(id: any): $mol_icon_delete;
         point_drop(id: any, next?: any): any;
         Point_drop(id: any): $mol_button_minor;
+        Point_actions_label(id: any): $mol_labeler;
         Point_card(id: any): $$.$mol_card;
         point_rows(): readonly any[];
         Point_rows(): $$.$mol_list;
@@ -2955,7 +2980,7 @@ declare namespace $ {
         Home(): $$.$mol_link;
         voted(id: any, next?: any): boolean;
         voting_point_image(id: any): string;
-        Voting_point_image(id: any): $$.$mol_image;
+        Voting_point_image(id: any): $$.$mol_link_iconed;
         voting_point_name(id: any): string;
         Voting_point_name(id: any): $$.$mol_paragraph;
         voting_point_count(id: any): string;

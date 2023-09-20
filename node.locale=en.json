@@ -1,7 +1,9 @@
 {
 	"$hype_vote_app_Home_title": "Home page",
+	"$hype_vote_app_Point_actions_label_title": "Actions",
 	"$hype_vote_app_Point_add_label": "Add point",
-	"$hype_vote_app_Point_image_label_title": "Point image",
+	"$hype_vote_app_Point_image_label_title": "Point site",
+	"$hype_vote_app_Point_image_preview_label_title": "Image",
 	"$hype_vote_app_Point_name_label_title": "Point name",
 	"$hype_vote_app_Points_list_label_title": "Voting points",
 	"$hype_vote_app_Poll_add_title": "Add poll",
