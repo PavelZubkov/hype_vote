@@ -20,10 +20,11 @@ namespace $.$$ {
 			},
 		},
 
-		Point_image_preview: {
-			width: '250px',
-			height: '130px',
-		},
+		// Point_image_preview: {
+		// 	alignItems: 'center',
+		// 	width: '250px',
+		// 	height: '130px',
+		// },
 
 		// Voiting_point: {
 		// 	'@': {
@@ -35,10 +36,10 @@ namespace $.$$ {
 		// 	},
 		// },
 
-		Voting_point_image: {
-			width: '250px',
-			height: '130px',
-		}
+		// Voting_point_image: {
+		// 	width: '250px',
+		// 	height: '130px',
+		// }
 		
 	} )
 	

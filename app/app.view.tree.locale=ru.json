@@ -6,7 +6,7 @@
 	"$hype_vote_app_Point_add_label": "Добавить пункт",
 	"$hype_vote_app_Points_list_label_title": "Варианты ответов",
 	"$hype_vote_app_Point_name_label_title": "Название",
-	"$hype_vote_app_Point_image_label_title": "Ссылка на изображение",
+	"$hype_vote_app_Point_image_label_title": "Сайт",
 	"$hype_vote_app_Poll_page_title": "Опрос",
 	"$hype_vote_app_Home_title": "Создать свой опрос"
 }
