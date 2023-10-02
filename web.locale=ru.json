@@ -10,7 +10,8 @@
 	"$hype_vote_app_Poll_voting_link_title": "Страница голосования",
 	"$hype_vote_app_poll_no_name": "Дайте опросу имя",
 	"$mol_link_source_hint": "Исходные коды",
-	"$mol_select_Filter_hint": "Фильтр..",
+	"$mol_search_Clear_hint": "Очистить",
+	"$mol_search_hint": "Поиск..",
 	"$mol_select_hint": "Выбрать..",
 	"$mol_select_no_options_message": "Нет вариантов"
 }
