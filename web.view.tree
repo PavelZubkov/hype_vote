@@ -57,6 +57,9 @@ $mol_button_major $mol_button_typed
 $mol_link $mol_view
 	uri \
 	dom_name \a
+	uri_off \
+	uri_native null
+	external false
 	attr *
 		^
 		href <= uri_toggle \
