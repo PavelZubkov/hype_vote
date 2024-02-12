@@ -337,7 +337,7 @@ $mol_icon_sync_off $mol_icon path \M20,4H14V10L16.24,7.76C17.32,8.85 18,10.34 18
 $hyoo_sync_online $mol_select
 	minimal_width 40
 	minimal_height 40
-	yard $hyoo_sync_yard
+	yard $hyoo_sync_yard<any>
 		master_list => dictionary
 		master_cursor? => master_cursor?
 	Filter null
@@ -403,18 +403,18 @@ $mol_icon_plus $mol_icon path \M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z
 
 $mol_image $mol_view
 	dom_name \img
-	field *
+	field *any
 		^
 		src <= uri \
 		alt <= title
 		loading <= loading \eager
 		decoding <= decoding \async
 		crossOrigin <= cors null
-	attr *
+	attr *any
 		^
-		width <= natural_width? 0
-		height <= natural_height? 0
-	event *
+		width <= natural_width 0
+		height <= natural_height 0
+	event *any
 		load? <=> load? null
 	minimal_width 16
 	minimal_height 16
