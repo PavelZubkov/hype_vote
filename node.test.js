@@ -3600,12 +3600,28 @@ var $;
 var $;
 (function ($) {
     class $mol_error_mix extends AggregateError {
-        name = '$mol_error_mix';
+        name = $$.$mol_func_name(this.constructor);
         constructor(message, ...errors) {
-            super(errors, [message, ...errors.map(e => '  ' + e.message)].join('\n'));
+            super(errors, [message, ...errors.map(e => e.message.replace(/^/gm, '  '))].join('\n'));
+        }
+        get cause() {
+            return [].concat(...this.errors.map(e => e.cause).filter(Boolean));
         }
         toJSON() {
-            return this.message;
+            return this.errors.map(e => e.message);
+        }
+        pick(Class) {
+            if (this instanceof Class)
+                return this;
+            for (const e of this.errors) {
+                if (e instanceof Class)
+                    return e;
+            }
+            for (const e of this.cause) {
+                if (e && e instanceof Class)
+                    return e;
+            }
+            return null;
         }
     }
     $.$mol_error_mix = $mol_error_mix;
@@ -8708,7 +8724,7 @@ var $;
 		}
 		Clear(){
 			const obj = new this.$.$mol_button_minor();
-			(obj.hint) = () => (this.$.$mol_locale.text("$mol_search_Clear_hint"));
+			(obj.hint) = () => ((this.$.$mol_locale.text("$mol_search_Clear_hint")));
 			(obj.click) = (next) => ((this.clear(next)));
 			(obj.sub) = () => ([(this.Clear_icon())]);
 			return obj;
@@ -10778,7 +10794,7 @@ var $;
 		}
 		Poll_add(){
 			const obj = new this.$.$mol_button_major();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Poll_add_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Poll_add_title")));
 			(obj.click) = (next) => ((this.poll_add(next)));
 			return obj;
 		}
@@ -10831,7 +10847,7 @@ var $;
 			const obj = new this.$.$mol_link();
 			(obj.target) = () => ("_blank");
 			(obj.arg) = () => ({"voting": (this.poll_opened_id()), "poll": null});
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Poll_voting_link_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Poll_voting_link_title")));
 			return obj;
 		}
 		poll_opened_name(next){
@@ -10845,7 +10861,7 @@ var $;
 		}
 		Poll_name_label(){
 			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Poll_name_label_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Poll_name_label_title")));
 			(obj.content) = () => ([(this.Poll_name_control())]);
 			return obj;
 		}
@@ -10868,7 +10884,7 @@ var $;
 		}
 		Points_list_label(){
 			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Points_list_label_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Points_list_label_title")));
 			(obj.content) = () => ([(this.Point_add())]);
 			return obj;
 		}
@@ -10883,7 +10899,7 @@ var $;
 		}
 		Point_name_label(id){
 			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Point_name_label_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Point_name_label_title")));
 			(obj.content) = () => ([(this.Point_name_cotrol(id))]);
 			return obj;
 		}
@@ -10898,7 +10914,7 @@ var $;
 		}
 		Point_image_label(id){
 			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Point_image_label_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Point_image_label_title")));
 			(obj.content) = () => ([(this.Point_image_control(id))]);
 			return obj;
 		}
@@ -10910,7 +10926,7 @@ var $;
 		}
 		Point_image_preview_label(id){
 			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Point_image_preview_label_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Point_image_preview_label_title")));
 			(obj.content) = () => ([(this.Point_image_preview(id))]);
 			return obj;
 		}
@@ -10930,7 +10946,7 @@ var $;
 		}
 		Point_actions_label(id){
 			const obj = new this.$.$mol_labeler();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Point_actions_label_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Point_actions_label_title")));
 			(obj.content) = () => ([(this.Point_drop(id))]);
 			return obj;
 		}
@@ -10963,7 +10979,7 @@ var $;
 		}
 		Poll_page(){
 			const obj = new this.$.$mol_page();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Poll_page_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Poll_page_title")));
 			(obj.tools) = () => ([(this.Poll_voting_link())]);
 			(obj.body) = () => ([(this.Poll_body())]);
 			return obj;
@@ -10973,7 +10989,7 @@ var $;
 		}
 		Home(){
 			const obj = new this.$.$mol_link();
-			(obj.title) = () => (this.$.$mol_locale.text("$hype_vote_app_Home_title"));
+			(obj.title) = () => ((this.$.$mol_locale.text("$hype_vote_app_Home_title")));
 			(obj.arg) = () => ({"voting": null, "poll": null});
 			return obj;
 		}
@@ -13932,6 +13948,49 @@ var $;
         'config by value'() {
             const N = $mol_data_setup((a) => a, 5);
             $mol_assert_equal(N.config, 5);
+        },
+    });
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_test({
+        'auto name'() {
+            class TestError extends $mol_error_mix {
+            }
+            const mix = new TestError('foo');
+            $mol_assert_equal(mix.name, 'TestError');
+        },
+        'empty mix'() {
+            const mix = new $mol_error_mix('foo');
+            $mol_assert_equal(mix.message, 'foo');
+            $mol_assert_equal(mix.cause, []);
+        },
+        'simpe mix'() {
+            const mix = new $mol_error_mix('foo', new Error('bar', { cause: 'xxx' }), new Error('lol', { cause: 'yyy' }));
+            $mol_assert_equal(mix.message, 'foo\n  bar\n  lol');
+            $mol_assert_equal(mix.cause, ['xxx', 'yyy']);
+        },
+        'mix of mixes'() {
+            const mix = new $mol_error_mix('mix', new $mol_error_mix('foo1', new Error('bar1', { cause: 'xxx1' }), new Error('lol1', { cause: 'yyy1' })), new $mol_error_mix('foo2', new Error('bar2', { cause: 'xxx2' }), new Error('lol2', { cause: 'yyy2' })));
+            $mol_assert_equal(mix.message, 'mix\n  foo1\n    bar1\n    lol1\n  foo2\n    bar2\n    lol2');
+            $mol_assert_equal(mix.cause, ['xxx1', 'yyy1', 'xxx2', 'yyy2']);
+        },
+        'pick by class'() {
+            const mix = new $mol_error_mix('foo', new RangeError('bar', {
+                cause: [
+                    new SyntaxError('xxx1'),
+                    new SyntaxError('xxx2'),
+                    new TypeError('lol0'),
+                ],
+            }), new TypeError('lol1', {
+                cause: new TypeError('xxx3'),
+            }), new TypeError('lol2'));
+            $mol_assert_equal(mix.pick(RangeError).message, 'bar');
+            $mol_assert_equal(mix.pick(SyntaxError).message, 'xxx1');
+            $mol_assert_equal(mix.pick(TypeError).message, 'lol1');
         },
     });
 })($ || ($ = {}));
