@@ -49,10 +49,9 @@ $mol_button_typed $mol_button
 	minimal_height 40
 	minimal_width 40
 
-$mol_button_major $mol_button_typed
-	attr *
-		^
-		mol_theme \$mol_theme_accent
+$mol_button_minor $mol_button_typed
+
+$mol_button_major $mol_button_minor
 
 $mol_link $mol_view
 	uri \
@@ -109,8 +108,6 @@ $mol_pop_bubble $mol_view
 		^
 		mol_pop_align <= align \
 		tabindex 0
-
-$mol_button_minor $mol_button_typed
 
 $mol_check $mol_button_minor
 	attr *
