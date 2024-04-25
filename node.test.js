@@ -7759,6 +7759,9 @@ var $;
         }
     }
     __decorate([
+        $mol_mem
+    ], $hyoo_crowd_node.prototype, "units", null);
+    __decorate([
         $mol_mem_key
     ], $hyoo_crowd_node.prototype, "nodes", null);
     $.$hyoo_crowd_node = $hyoo_crowd_node;
